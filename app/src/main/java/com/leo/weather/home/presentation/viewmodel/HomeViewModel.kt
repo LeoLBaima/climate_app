@@ -13,13 +13,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val repository: WeatherRepository) : ViewModel() {
-    private val weather = MutableLiveData<WeatherInfo>()
-    private val state = MutableLiveData<UiState>()
+    private val state = MutableLiveData<UiState>(UiState.Initial)
 
-    val stateInfo : LiveData<UiState>
+    val stateInfo: LiveData<UiState>
         get() = state
-    val weatherInfo : LiveData<WeatherInfo>
-        get() = weather
 
 
     fun getWeather(location: String) {
@@ -28,7 +25,7 @@ class HomeViewModel @Inject constructor(private val repository: WeatherRepositor
 
             viewModelScope.launch(Dispatchers.IO) {
                 repository.getWeather(location).let {
-                    weather.postValue(it)
+                    state.postValue(UiState.Content(it))
                 }
             }
         } catch (e: Exception) {
@@ -40,7 +37,8 @@ class HomeViewModel @Inject constructor(private val repository: WeatherRepositor
 }
 
 sealed class UiState {
-    data class Content(val weather: String) : UiState()
+    data object Initial : UiState()
+    data class Content(val weather: WeatherInfo) : UiState()
     data object Loading : UiState()
     data object Error : UiState()
 }
