@@ -6,8 +6,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class DayResponse(
-    @SerialName("maxtemp_c") val maxTemp: Double,
-    @SerialName("mintemp_c") val minTemp: Double,
+    @SerialName("maxtemp_c")
+    val maxTemp: Double,
+    @SerialName("mintemp_c")
+    val minTemp: Double,
     val condition: ConditionResponse,
 ) {
     fun toDomain(): Day =

@@ -25,7 +25,7 @@ object HomeModule {
         val retrofit = Retrofit
             .Builder()
             .addConverterFactory(json.asConverterFactory(contentType!!))
-            .baseUrl("https://us-central1-android-course-api.cloudfunctions.net")
+            .baseUrl("https://api.weatherapi.com/v1/")
             .build()
 
         return retrofit.create(WeatherService::class.java)

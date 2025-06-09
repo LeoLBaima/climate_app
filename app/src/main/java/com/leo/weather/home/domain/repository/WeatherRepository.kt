@@ -3,5 +3,5 @@ package com.leo.weather.home.domain.repository
 import com.leo.weather.home.domain.model.WeatherInfo
 
 interface WeatherRepository {
-    fun getWeather() : WeatherInfo
+    suspend fun getWeather(location: String) : WeatherInfo
 }

@@ -32,6 +32,7 @@ class HomeActivity : ComponentActivity() {
 
         setContent {
             ClimateTheme {
+                viewModel.getWeather("London")
                 HomeContent()
             }
         }
