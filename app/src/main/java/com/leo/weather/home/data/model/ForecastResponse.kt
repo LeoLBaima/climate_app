@@ -7,9 +7,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ForecastResponse(
     @SerialName("forecastday")
-    val forecastDays: List<ForecastDayResponse>
+    val forecastDays: List<ForecastDayResponse>,
 ) {
-    fun toDomain() : Forecast = Forecast(
+    fun toDomain(): Forecast = Forecast(
         forecastDays = forecastDays.map {
             it.toDomain()
         }

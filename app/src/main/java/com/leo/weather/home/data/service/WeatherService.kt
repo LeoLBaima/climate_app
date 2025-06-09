@@ -11,6 +11,7 @@ interface WeatherService {
         @Query("q") location: String,
         @Query("days") days: String = "7",
         @Query("aqi") aqi: String = "no",
-        @Query("alerts") alerts: String = "no"
+        @Query("alerts") alerts: String = "no",
+        @Query("tp") tp: String = "60"
     ): WeatherInfoResponse
 }

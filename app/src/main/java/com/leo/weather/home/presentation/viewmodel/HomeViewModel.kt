@@ -32,6 +32,10 @@ class HomeViewModel @Inject constructor(private val repository: WeatherRepositor
             state.value = UiState.Error
         }
     }
+
+    fun startSearch() {
+        state.value = UiState.Initial
+    }
 }
 
 sealed class UiState {
