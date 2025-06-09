@@ -31,8 +31,6 @@ class HomeViewModel @Inject constructor(private val repository: WeatherRepositor
         } catch (e: Exception) {
             state.value = UiState.Error
         }
-
-
     }
 }
 

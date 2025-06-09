@@ -9,7 +9,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.leo.weather.ui.theme.WhiteD1
-import com.leo.weather.ui.theme.customFontFamily
 
 @Composable
 fun NimbusText(
